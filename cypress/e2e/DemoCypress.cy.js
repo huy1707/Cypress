@@ -40,33 +40,29 @@ describe("Check page sagaftraplans", function () {
     // //verify error message
     // cy.xpath(loginPage.txtLoginFailed).should("have.text",errMessage.loginFailed);
 
-    // // Call the custom command to make the API request
-    // cy.makeApiRequest().then((response) => {
-    //   // Call the custom command to assert the API response
-    //   cy.assertApiResponseCode(response);
-    //   // Additional assertions or actions based on the response can be added here
-    //   cy.assertApiPageDetails(response);
-    //   // Iterate through user data and call the custom command to assert user details
-    //   response.body.data.forEach((userData) => {
-    //     cy.assertUserData(userData);
-    //   });
+    // Call the custom command to make the API request
+    cy.makeApiRequest().then((response) => {
+      // Call the custom command to assert the API response
+      cy.assertApiResponseCode(response);
+      // Additional assertions or actions based on the response can be added here
+      cy.assertApiPageDetails(response);
+      // Iterate through user data and call the custom command to assert user details
+      response.body.data.forEach((userData) => {
+        cy.assertUserData(userData);
+      });
      
-    // });
-
-    // cy.task('queryDb', 'SELECT category_id, category_name FROM testing.category WHERE category_id IN (1);')
-    // .then((result) => {
-    //   // Do something with the results
-    //   cy.log(result.rows)
-    // }); 
-
-    const dbName = 'stagingA'
-    const query = 'SELECT category_id, category_name FROM testing.category WHERE category_id IN (2);'
-    cy.log(`Running the following query: ${query}`);
-    // cy.runDatabaseQuery(dbName,query)
-    cy.task('queryDatabase', { dbName, query }).then((result) => {
-      // Use the result as needed
-      cy.log(`Received result in the test: ${JSON.stringify(result)}`);
-      // Add assertions or other test logic here
     });
+
+
+
+    // const dbName = 'stagingA'
+    // const query = 'SELECT category_id, category_name FROM testing.category WHERE category_id IN (2);'
+    // cy.log(`Running the following query: ${query}`);
+    // // cy.runDatabaseQuery(dbName,query)
+    // cy.task('queryDatabase', { dbName, query }).then((result) => {
+    //   // Use the result as needed
+    //   cy.log(`Received result in the test: ${JSON.stringify(result)}`);
+    //   // Add assertions or other test logic here
+    // });
   });
 });
