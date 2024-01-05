@@ -1,0 +1,16 @@
+{
+  "watchForFileChanges": false,
+  "defaultCommandTimeout": 100000,
+  "baseUrl": "https://www.sagaftraplans.org",
+  "pageLoadTimeout": 180000,
+  "requestTimeout": 180000,
+  "responseTimeout": 180000,
+  "e2eFolder": "cypress/e2e",
+  "retries": {
+    "runMode": 2,
+    "openMode": 2
+  },
+  "testFiles": ["**/*.spec.js"],
+  "viewportWidth": 1920,
+  "viewportHeight": 1080
+}
